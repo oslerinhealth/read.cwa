@@ -1,0 +1,53 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# cwaconvert
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The goal of cwaconvert is to provide functionality to convert 'Axtivity' 'CWA' files.
+
+## Installation
+
+You can install the released version of cwaconvert from [CRAN](https://CRAN.R-project.org) with:
+
+``` r
+install.packages("cwaconvert")
+```
+
+And the development version from [GitHub](https://github.com/) with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("muschellij2/cwaconvert")
+```
+## Example
+
+This is a basic example which shows you how to read in a CWA:
+
+```{r example}
+library(cwaconvert)
+file = system.file("extdata", "ax3_testfile.cwa.gz", package = "cwaconvert")
+out = read_cwa(file)
+head(out)
+```
+
+```{r ex2}
+out = read_cwa(file, xyz_only = TRUE)
+head(out)
+## basic example code
+```
+

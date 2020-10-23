@@ -287,7 +287,9 @@ static char DumpFile(const char *filename, const char *outfile, Stream stream, F
             unsigned short header = *((unsigned short *)buffer);
             if (header == HEADER_UNDEFINED_BLOCK)
             {
+              if (verbose > 0) {
                 Rprintf(".");
+              }
             }
             else if (header == HEADER_METADATA)
             {
@@ -864,7 +866,9 @@ static char DumpFile(const char *filename, const char *outfile, Stream stream, F
 #endif
             fclose(ofp);
     //}
-    Rprintf("\r\nWrote %u bytes of data (%u samples).\r\n", (unsigned int)outputSize, (unsigned int)totalSamples);
+    if (verbose > 0) {
+      Rprintf("\r\nWrote %u bytes of data (%u samples).\r\n", (unsigned int)outputSize, (unsigned int)totalSamples);
+    }
 
     if (floatBuffer != NULL) { free(floatBuffer); floatBuffer = NULL; }
 

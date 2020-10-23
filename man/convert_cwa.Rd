@@ -3,11 +3,19 @@
 \name{convert_cwa}
 \alias{convert_cwa}
 \alias{read_cwa_csv}
+\alias{read_cwa}
 \title{Convert a CWA activity file to a CSV}
 \usage{
 convert_cwa(file, outfile = tempfile(fileext = ".csv"), verbose = TRUE)
 
-read_cwa_csv(file)
+read_cwa_csv(file, xyz_only = FALSE, verbose = TRUE)
+
+read_cwa(
+  file,
+  outfile = tempfile(fileext = ".csv"),
+  xyz_only = FALSE,
+  verbose = TRUE
+)
 }
 \arguments{
 \item{file}{input CWA file}
@@ -15,10 +23,17 @@ read_cwa_csv(file)
 \item{outfile}{output CSV file}
 
 \item{verbose}{print diagnostic messages}
+
+\item{xyz_only}{read only time and X/Y/Z columns}
 }
 \value{
 Name of output CSV file
 }
 \description{
 Convert a CWA activity file to a CSV
+}
+\examples{
+file = system.file("extdata", "ax3_testfile.cwa.gz", package = "cwaconvert")
+out = read_cwa(file)
+out = read_cwa(file, xyz_only = TRUE)
 }
