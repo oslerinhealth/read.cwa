@@ -10,9 +10,9 @@
 #' gz_file = system.file("extdata", "ax3_testfile.cwa.gz", package = "read.cwa")
 #' file = R.utils::gunzip(gz_file, temporary = TRUE, remove = FALSE)
 #' out = read_cwa(file)
-#' out = read_cwa(file, xyz_only = TRUE)
+#' out = read_cwa(file, xyz_only = FALSE)
 convert_cwa <- function(file, outfile = tempfile(fileext = ".csv"),
-                        xyz_only = FALSE,
+                        xyz_only = TRUE,
                         verbose = TRUE) {
   file = path.expand(file)
   file = normalizePath(file, winslash = "/", mustWork = TRUE)
@@ -43,7 +43,7 @@ convert_cwa <- function(file, outfile = tempfile(fileext = ".csv"),
 
 #' @rdname convert_cwa
 #' @export
-read_cwa_csv = function(file, xyz_only = FALSE, verbose = TRUE) {
+read_cwa_csv = function(file, xyz_only = TRUE, verbose = TRUE) {
   default = readr::col_double()
   event_col = readr::col_character()
   if (xyz_only) {
@@ -79,7 +79,7 @@ read_cwa_csv = function(file, xyz_only = FALSE, verbose = TRUE) {
 #' @rdname convert_cwa
 #' @export
 read_cwa <- function(file, outfile = tempfile(fileext = ".csv"),
-                     xyz_only = FALSE,
+                     xyz_only = TRUE,
                      verbose = TRUE) {
   if (verbose) {
     message("Converting the CWA to CSV")
