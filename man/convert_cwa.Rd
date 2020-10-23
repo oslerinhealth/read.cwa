@@ -39,7 +39,7 @@ Convert a CWA activity file to a CSV
 }
 \examples{
 gz_file = system.file("extdata", "ax3_testfile.cwa.gz", package = "read.cwa")
-file = R.utils::gunzip(gz_file, temporary = TRUE, remove = FALSE)
+file = R.utils::gunzip(gz_file, temporary = TRUE, remove = FALSE, overwrite = TRUE)
 out = read_cwa(file)
 out = read_cwa(file, xyz_only = FALSE)
 }
