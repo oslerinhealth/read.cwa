@@ -7,7 +7,7 @@ read.cwa
 <!-- badges: start -->
 
 [![AppVeyor build
-status](https://ci.appveyor.com/api/projects/status/github/muschellij2/read.cwa?branch=master&svg=true)](https://ci.appveyor.com/project/muschellij2/read.cwa)
+status](https://ci.appveyor.com/api/projects/status/github/muschellij2/read-cwa?branch=master&svg=true)](https://ci.appveyor.com/project/muschellij2/read-cwa)
 [![R build
 status](https://github.com/muschellij2/read.cwa/workflows/R-CMD-check/badge.svg)](https://github.com/muschellij2/read.cwa/actions)
 <!-- badges: end -->
