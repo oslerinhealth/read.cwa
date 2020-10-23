@@ -1,4 +1,4 @@
 library(testthat)
-library(cwaconvert)
+library(read.cwa)
 
-test_check("cwaconvert")
+test_check("read.cwa")
