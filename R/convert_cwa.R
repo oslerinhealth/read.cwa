@@ -5,9 +5,9 @@
 #' @param xyz_only read only time and X/Y/Z columns
 #' @return Name of output CSV file
 #' @export
-#' @useDynLib cwaconvert , .registration=TRUE
+#' @useDynLib read.cwa , .registration=TRUE
 #' @examples
-#' gz_file = system.file("extdata", "ax3_testfile.cwa.gz", package = "cwaconvert")
+#' gz_file = system.file("extdata", "ax3_testfile.cwa.gz", package = "read.cwa")
 #' file = R.utils::gunzip(gz_file, temporary = TRUE, remove = FALSE)
 #' out = read_cwa(file)
 #' out = read_cwa(file, xyz_only = TRUE)
@@ -36,7 +36,7 @@ convert_cwa <- function(file, outfile = tempfile(fileext = ".csv"),
   args = c(file,  outfile)
   .Call("convert_cwa_",  args[1], args[2],
         as.integer(verbose),
-        PACKAGE = "cwaconvert")
+        PACKAGE = "read.cwa")
 }
 
 #' @rdname convert_cwa

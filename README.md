@@ -1,40 +1,40 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-cwaconvert
-==========
+read.cwa
+========
 
 <!-- badges: start -->
 
 [![AppVeyor build
-status](https://ci.appveyor.com/api/projects/status/github/muschellij2/cwaconvert?branch=master&svg=true)](https://ci.appveyor.com/project/muschellij2/cwaconvert)
+status](https://ci.appveyor.com/api/projects/status/github/muschellij2/read.cwa?branch=master&svg=true)](https://ci.appveyor.com/project/muschellij2/read.cwa)
 [![R build
-status](https://github.com/muschellij2/cwaconvert/workflows/R-CMD-check/badge.svg)](https://github.com/muschellij2/cwaconvert/actions)
+status](https://github.com/muschellij2/read.cwa/workflows/R-CMD-check/badge.svg)](https://github.com/muschellij2/read.cwa/actions)
 <!-- badges: end -->
 
-The goal of cwaconvert is to provide functionality to convert ‘Axtivity’
+The goal of read.cwa is to provide functionality to convert ‘Axtivity’
 ‘CWA’ files.
 
 Installation
 ------------
 
-You can install the released version of cwaconvert from
+You can install the released version of read.cwa from
 [CRAN](https://CRAN.R-project.org) with:
 
-    install.packages("cwaconvert")
+    install.packages("read.cwa")
 
 And the development version from [GitHub](https://github.com/) with:
 
     # install.packages("devtools")
-    devtools::install_github("muschellij2/cwaconvert")
+    devtools::install_github("muschellij2/read.cwa")
 
 Example
 -------
 
 This is a basic example which shows you how to read in a CWA:
 
-    library(cwaconvert)
-    file = system.file("extdata", "ax3_testfile.cwa.gz", package = "cwaconvert")
+    library(read.cwa)
+    file = system.file("extdata", "ax3_testfile.cwa.gz", package = "read.cwa")
     out = read_cwa(file)
     #> Converting the CWA to CSV
     #> Reading 147 sectors (offset 0, file 147)...

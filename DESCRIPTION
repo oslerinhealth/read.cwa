@@ -1,4 +1,4 @@
-Package: cwaconvert
+Package: read.cwa
 Type: Package
 Title: Convert 'Axtivity' 'CWA' Files
 Version: 0.1.0
@@ -24,5 +24,5 @@ Suggests:
     rmarkdown,
     testthat (>= 2.1.0)
 VignetteBuilder: knitr
-URL: https://github.com/muschellij2/cwaconvert
-BugReports: https://github.com/muschellij2/cwaconvert/issues
+URL: https://github.com/muschellij2/read.cwa
+BugReports: https://github.com/muschellij2/read.cwa/issues

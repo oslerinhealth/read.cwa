@@ -3,4 +3,4 @@
 export(convert_cwa)
 export(read_cwa)
 export(read_cwa_csv)
-useDynLib(cwaconvert , .registration=TRUE)
+useDynLib(read.cwa , .registration=TRUE)
