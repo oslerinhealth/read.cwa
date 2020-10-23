@@ -1045,17 +1045,22 @@ atexit(_getch);
 }
 
 
-SEXP convert_cwa_(SEXP file, SEXP outfile, SEXP verbose){
-	// printf(argv[0]);
-	// printf("\ncmdline args count=%s", argv);
-	// printf("\ncmdline args count=%s", &argv);
- //    int argc = (sizeof(argv) - sizeof(argv) ) / sizeof(argv[0]);
-	// printf("\ncmdline args count=%d", argc);
-    // main(1, &argv);
-    int verb = asInteger(verbose);
-
+SEXP convert_cwa_(SEXP file, SEXP outfile, SEXP xyz_only, SEXP verbose){
+  // printf(argv[0]);
+  // printf("\ncmdline args count=%s", argv);
+  // printf("\ncmdline args count=%s", &argv);
+  //    int argc = (sizeof(argv) - sizeof(argv) ) / sizeof(argv[0]);
+  // printf("\ncmdline args count=%d", argc);
+  // main(1, &argv);
+  int verb = asInteger(verbose);
+  int xyz = asInteger(xyz_only);
+  if (xyz) {
+    const char *argv[]= {CHAR(asChar(file)), "-out", CHAR(asChar(outfile))};
+    converter(3, argv, verb);
+  } else {
     const char *argv[]= {CHAR(asChar(file)), "-out", CHAR(asChar(outfile)), "-light", "-temp", "-batt", "-battv", "-battp", "-battr", "-events"};
     converter(10, argv, verb);
+  }
 
   return outfile;
 }

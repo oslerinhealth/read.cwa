@@ -6,7 +6,12 @@
 \alias{read_cwa}
 \title{Convert a CWA activity file to a CSV}
 \usage{
-convert_cwa(file, outfile = tempfile(fileext = ".csv"), verbose = TRUE)
+convert_cwa(
+  file,
+  outfile = tempfile(fileext = ".csv"),
+  xyz_only = FALSE,
+  verbose = TRUE
+)
 
 read_cwa_csv(file, xyz_only = FALSE, verbose = TRUE)
 
@@ -22,9 +27,9 @@ read_cwa(
 
 \item{outfile}{output CSV file}
 
-\item{verbose}{print diagnostic messages}
-
 \item{xyz_only}{read only time and X/Y/Z columns}
+
+\item{verbose}{print diagnostic messages}
 }
 \value{
 Name of output CSV file
