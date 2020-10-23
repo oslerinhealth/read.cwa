@@ -518,7 +518,9 @@ static char DumpFile(const char *filename, const char *outfile, Stream stream, F
 						time_t time0;
 						double t0, t1;
 
-						// Rprintf("*");
+						if (verbose > 1) {
+						  Rprintf("*");
+						}
 						totalSamples += sampleCount;
 
 						// Calculate block start time
