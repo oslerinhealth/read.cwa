@@ -1,2 +1,1 @@
 PKG_LIBS = -lm -lpthread -lR
-CXX_STD = CXX11

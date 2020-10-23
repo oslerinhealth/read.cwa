@@ -35,9 +35,9 @@ typedef struct Sample_t
             short accelX;
             short accelY;
             short accelZ;
-        };
+        } packet;
         short accel[3];
-    };
+    } data;
 } Sample;
 
 // 512-byte data packet
