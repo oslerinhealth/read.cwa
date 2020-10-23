@@ -192,7 +192,7 @@ static char DumpFile(const char *filename, const char *outfile, Stream stream, F
 
 	if (amplify != 1.0f && format != FORMAT_WAV && format != FORMAT_RAW)
 	{
-		printf("WARNING: Amplify only works with .WAV or .RAW files -- ignoring amplification.\n");
+		Rprintf("WARNING: Amplify only works with .WAV or .RAW files -- ignoring amplification.\n");
 	}
 
     fp = fopen(filename, "rb");
@@ -232,8 +232,8 @@ static char DumpFile(const char *filename, const char *outfile, Stream stream, F
             sqlite3_exec(dbconn, sql, 0, 0, 0);
             sqlite3_exec(dbconn, "CREATE INDEX time_hash ON acc (time);", 0, 0, 0);
             if (sqlite3_prepare_v2(dbconn, sql_prepare, -1, &stmt, NULL) != SQLITE_OK) {
-                printf("\nCould not prepare statement.\n");
-                printf("%s\n", sql_prepare);
+                Rprintf("\nCould not prepare statement.\n");
+                Rprintf("%s\n", sql_prepare);
                 return -1;
             }
             sqlite3_exec(dbconn, "BEGIN;", 0, 0, 0);
@@ -253,7 +253,7 @@ static char DumpFile(const char *filename, const char *outfile, Stream stream, F
     }
 #endif
 
-    if (ofp == NULL) { ofp = stdout; }
+    // if (ofp == NULL) { ofp = stdout; }
 
     fseek(fp, 0, SEEK_END);
     lengthBytes = ftell(fp);
@@ -302,7 +302,7 @@ static char DumpFile(const char *filename, const char *outfile, Stream stream, F
             {
                 DataBlocksAvailable *dataBlocksAvailable;
                 dataBlocksAvailable = (DataBlocksAvailable *)buffer;
-                if (verbose > 0) {                
+                if (verbose > 0) {
                 	Rprintf("[UB]");
             	}
             }
@@ -844,14 +844,14 @@ static char DumpFile(const char *filename, const char *outfile, Stream stream, F
     }
 
     // Patch up WAV header with actual number of samples
-    if (format == FORMAT_WAV && ofp != stdout && wavChannels != 0)
+    if (format == FORMAT_WAV && wavChannels != 0)
     {
         fseek(ofp, 4, SEEK_SET);  fputlong(outputSize + 68 - 8, ofp);
         fseek(ofp, 64, SEEK_SET); fputlong(outputSize, ofp);
     }
 
-    if (ofp != stdout)
-    {
+//    if (ofp != stdout)
+//    {
 #ifdef SQLITE
         if (format == FORMAT_SQLITE)
         {
@@ -863,7 +863,7 @@ static char DumpFile(const char *filename, const char *outfile, Stream stream, F
         else
 #endif
             fclose(ofp);
-    }
+    //}
     Rprintf("\r\nWrote %u bytes of data (%u samples).\r\n", (unsigned int)outputSize, (unsigned int)totalSamples);
 
     if (floatBuffer != NULL) { free(floatBuffer); floatBuffer = NULL; }
@@ -872,7 +872,7 @@ static char DumpFile(const char *filename, const char *outfile, Stream stream, F
 }
 
 
-int converter(int argc, const char *argv[], int verbose) 
+int converter(int argc, const char *argv[], int verbose)
 {
     char help = 0;
     const char *filename = argv[0];
@@ -1050,6 +1050,6 @@ SEXP convert_cwa_(SEXP file, SEXP outfile, SEXP verbose){
 
     const char *argv[]= {CHAR(asChar(file)), "-out", CHAR(asChar(outfile)), "-light", "-temp", "-batt", "-battv", "-battp", "-battr", "-events"};
     converter(10, argv, verb);
-  
+
   return outfile;
 }

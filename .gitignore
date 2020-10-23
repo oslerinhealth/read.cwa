@@ -4,6 +4,7 @@
 .Ruserdata
 inst/doc
 src/*.o
+src/*.so
 src/*.gcda
 src/*.gcno
 src/*.o.tmp

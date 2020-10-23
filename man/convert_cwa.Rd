@@ -2,9 +2,12 @@
 % Please edit documentation in R/convert_cwa.R
 \name{convert_cwa}
 \alias{convert_cwa}
+\alias{read_cwa_csv}
 \title{Convert a CWA activity file to a CSV}
 \usage{
 convert_cwa(file, outfile = tempfile(fileext = ".csv"), verbose = TRUE)
+
+read_cwa_csv(file)
 }
 \arguments{
 \item{file}{input CWA file}

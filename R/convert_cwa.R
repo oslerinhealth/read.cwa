@@ -4,7 +4,7 @@
 #' @param verbose print diagnostic messages
 #' @return Name of output CSV file
 #' @export
-#' @useDynLib cwaconvert convert_cwa_
+#' @useDynLib cwaconvert , .registration=TRUE
 convert_cwa <- function(file, outfile = tempfile(fileext = ".csv"),
                         verbose = TRUE) {
   file = path.expand(file)

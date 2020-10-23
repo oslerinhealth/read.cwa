@@ -1,22 +1,17 @@
 Package: cwaconvert
 Type: Package
-Title: Parse 'Actigraph' 'GT3X'/'GT3X+' Accelerometer Data
-Version: 0.3.1
+Title: Convert 'Axtivity' 'CWA' Files
+Version: 0.1.0
 Authors@R: 
-    c(person(given = "Tuomo",
-             family = "Nieminen",
-             role = c("aut", "cre"),
-             email = "tuomo.a.nieminen@gmail.com"),
-      person(given = "John",
+    c(person(given = "John",
              family = "Muschelli",
-             role = "aut",
+             role = c("aut", "cre"),
              email = "muschellij2@gmail.com",
-             comment = c(ORCID = "0000-0001-6469-1750")))
-Description: Implements a high performance C++ parser 
-    for 'ActiGraph' 'GT3X'/'GT3X+' data format (with extension '.gt3x') 
-    for accelerometer samples. Activity samples can be easily read into a
-    matrix or data.frame.  This allows for storing the raw accelerometer 
-    samples in the original binary format to reserve space.
+             comment = c(ORCID = "0000-0001-6469-1750"))
+    )
+Description: Implements a converter 
+    for 'Axtivity' 'CWA' data files to CSV.  The CSV reader wrapper function 
+    for the output of the converted file is also provided.
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
