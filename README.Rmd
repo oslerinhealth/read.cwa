@@ -16,6 +16,8 @@ knitr::opts_chunk$set(
 # cwaconvert
 
 <!-- badges: start -->
+[![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/muschellij2/cwaconvert?branch=master&svg=true)](https://ci.appveyor.com/project/muschellij2/cwaconvert)
+[![R build status](https://github.com/muschellij2/cwaconvert/workflows/R-CMD-check/badge.svg)](https://github.com/muschellij2/cwaconvert/actions)
 <!-- badges: end -->
 
 The goal of cwaconvert is to provide functionality to convert 'Axtivity' 'CWA' files.

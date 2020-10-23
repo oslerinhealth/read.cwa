@@ -5,6 +5,11 @@ cwaconvert
 ==========
 
 <!-- badges: start -->
+
+[![AppVeyor build
+status](https://ci.appveyor.com/api/projects/status/github/muschellij2/cwaconvert?branch=master&svg=true)](https://ci.appveyor.com/project/muschellij2/cwaconvert)
+[![R build
+status](https://github.com/muschellij2/cwaconvert/workflows/R-CMD-check/badge.svg)](https://github.com/muschellij2/cwaconvert/actions)
 <!-- badges: end -->
 
 The goal of cwaconvert is to provide functionality to convert ‘Axtivity’
@@ -31,9 +36,11 @@ This is a basic example which shows you how to read in a CWA:
     library(cwaconvert)
     file = system.file("extdata", "ax3_testfile.cwa.gz", package = "cwaconvert")
     out = read_cwa(file)
+    #> Converting the CWA to CSV
     #> Reading 147 sectors (offset 0, file 147)...
     #> [MD].
     #> Wrote 876815 bytes of data (17400 samples).
+    #> Reading in the CSV
     head(out)
     #> # A tibble: 6 x 11
     #>   timestamp               x      y      z light temperature battery
@@ -48,9 +55,11 @@ This is a basic example which shows you how to read in a CWA:
     #> #   battery_relative <dbl>, events <chr>
 
     out = read_cwa(file, xyz_only = TRUE)
+    #> Converting the CWA to CSV
     #> Reading 147 sectors (offset 0, file 147)...
     #> [MD].
     #> Wrote 876815 bytes of data (17400 samples).
+    #> Reading in the CSV
     head(out)
     #> # A tibble: 6 x 4
     #>   timestamp               x      y      z
