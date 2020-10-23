@@ -12,7 +12,7 @@ status](https://ci.appveyor.com/api/projects/status/github/muschellij2/read-cwa?
 status](https://github.com/muschellij2/read.cwa/workflows/R-CMD-check/badge.svg)](https://github.com/muschellij2/read.cwa/actions)
 <!-- badges: end -->
 
-The goal of read.cwa is to provide functionality to convert ‘Axtivity’
+The goal of `read.cwa` is to provide functionality to convert ‘Axtivity’
 ‘CWA’ files.
 
 Installation
