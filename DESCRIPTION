@@ -15,6 +15,7 @@ Description: Implements a converter
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
+SystemRequirements: C++11
 Imports: 
     R.utils,
     readr
