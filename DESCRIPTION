@@ -1,0 +1,33 @@
+Package: cwaconvert
+Type: Package
+Title: Parse 'Actigraph' 'GT3X'/'GT3X+' Accelerometer Data
+Version: 0.3.1
+Authors@R: 
+    c(person(given = "Tuomo",
+             family = "Nieminen",
+             role = c("aut", "cre"),
+             email = "tuomo.a.nieminen@gmail.com"),
+      person(given = "John",
+             family = "Muschelli",
+             role = "aut",
+             email = "muschellij2@gmail.com",
+             comment = c(ORCID = "0000-0001-6469-1750")))
+Description: Implements a high performance C++ parser 
+    for 'ActiGraph' 'GT3X'/'GT3X+' data format (with extension '.gt3x') 
+    for accelerometer samples. Activity samples can be easily read into a
+    matrix or data.frame.  This allows for storing the raw accelerometer 
+    samples in the original binary format to reserve space.
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+Imports: 
+    utils,
+    R.utils,
+    tools,
+    readr
+RoxygenNote: 7.1.1
+Suggests: 
+    knitr,
+    rmarkdown,
+    testthat (>= 2.1.0)
+VignetteBuilder: knitr
