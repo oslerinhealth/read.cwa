@@ -302,8 +302,8 @@ static char DumpFile(const char *filename, const char *outfile, Stream stream, F
             }
             else if (header == HEADER_USAGEBLOCK)
             {
-                DataBlocksAvailable *dataBlocksAvailable;
-                dataBlocksAvailable = (DataBlocksAvailable *)buffer;
+                // DataBlocksAvailable *dataBlocksAvailable;
+                // dataBlocksAvailable = (DataBlocksAvailable *)buffer;
                 if (verbose > 0) {
                 	Rprintf("[UB]");
             	}
