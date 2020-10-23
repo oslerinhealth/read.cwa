@@ -1,1 +1,1 @@
-PKG_LIBS = -lm -ldl -lpthread -lR
+PKG_LIBS = -lm -lpthread -lR
