@@ -26,3 +26,5 @@ Suggests:
     rmarkdown,
     testthat (>= 2.1.0)
 VignetteBuilder: knitr
+URL: https://github.com/muschellij2/cwaconvert
+BugReports: https://github.com/muschellij2/cwaconvert/issues
