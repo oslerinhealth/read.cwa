@@ -7,7 +7,8 @@
 #' @export
 #' @useDynLib cwaconvert , .registration=TRUE
 #' @examples
-#' file = system.file("extdata", "ax3_testfile.cwa.gz", package = "cwaconvert")
+#' gz_file = system.file("extdata", "ax3_testfile.cwa.gz", package = "cwaconvert")
+#' file = R.utils::gunzip(gz_file, temporary = TRUE, remove = FALSE)
 #' out = read_cwa(file)
 #' out = read_cwa(file, xyz_only = TRUE)
 convert_cwa <- function(file, outfile = tempfile(fileext = ".csv"),
@@ -22,11 +23,12 @@ convert_cwa <- function(file, outfile = tempfile(fileext = ".csv"),
                    xz = xzfile,
                    bz2 = bzfile
       )
-      file = R.utils::decompressFile(file, temporary = TRUE,
-                                     overwrite = TRUE,
-                                     ext = ext,
-                                     FUN = FUN,
-                                     remove = FALSE)
+      file = R.utils::decompressFile(
+        file, temporary = TRUE,
+        overwrite = TRUE,
+        ext = ext,
+        FUN = FUN,
+        remove = FALSE)
     }
   }
   outfile = as.character(outfile)
