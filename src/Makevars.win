@@ -1,0 +1,14 @@
+PKG_LIBS = $(PKG_LIBS) -lm -lpthread -lR
+
+## Workaround for missing _mkgmtime on Win32, See also
+## https://sourceforge.net/p/mingw-w64/bugs/473/
+## https://github.com/ropensci/redland-bindings/pull/44
+## https://github.com/ropensci/redland-bindings/issues/43
+ifeq "${R_ARCH}" "/i386"
+PKG_LIBS += -lmsvcr100
+endif
+
+all: clean
+
+clean:
+	rm -f $(OBJECTS) *.o *.so

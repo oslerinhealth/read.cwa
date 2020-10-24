@@ -1,0 +1,6 @@
+PKG_LIBS=@libs@ -lm -lpthread -lR
+
+all: clean
+
+clean:
+	rm -f *.o *.so

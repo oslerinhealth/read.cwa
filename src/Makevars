@@ -1,1 +1,0 @@
-PKG_LIBS = $(PKG_LIBS) -lm -lpthread -lR
