@@ -5,7 +5,7 @@ testthat::test_that("Reading in the data", {
   file = R.utils::gunzip(gz_file, destname = file,
                          temporary = TRUE, remove = FALSE)
 
-  out = read_cwa(file)
+  out = read_cwa(file, xyz_only = FALSE)
   testthat::expect_named(
     out,
     c("timestamp", "x", "y", "z", "light", "temperature", "battery",
