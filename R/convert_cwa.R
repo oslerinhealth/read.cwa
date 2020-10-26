@@ -58,6 +58,11 @@ convert_cwa <- function(file, outfile = tempfile(fileext = ".csv"),
 #' @rdname convert_cwa
 #' @export
 read_cwa_csv = function(file, xyz_only = TRUE, verbose = TRUE) {
+  header = NULL
+  if (is.list(file) && all(c("file", "header") %in% names(file))) {
+    header = file$header
+    file = file$file
+  }
   default = readr::col_double()
   event_col = readr::col_character()
   if (xyz_only) {
@@ -88,6 +93,8 @@ read_cwa_csv = function(file, xyz_only = TRUE, verbose = TRUE) {
     col_types = col_spec,
     progress = verbose
   )
+  attr(x, "header") = header
+  x
 }
 
 #' @rdname convert_cwa

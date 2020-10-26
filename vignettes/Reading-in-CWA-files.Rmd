@@ -1,0 +1,89 @@
+---
+title: "Reading-in-CWA-files"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Reading-in-CWA-files}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+Here we will show a simple example of converting and reading in Continuous Wave Accelerometer (CWA) data files (https://axivity.com/userguides/ax3/using/).  First, let's load up the package.
+```{r setup}
+library(read.cwa)
+```
+
+# Converting to a CSV
+We will use a file embedded in the package:
+```{r}
+file = system.file("extdata", "ax3_testfile.cwa.gz", package = "read.cwa")
+```
+
+To show how the package uses the C code from https://github.com/digitalinteraction/openmovement/tree/master/Software/AX3/cwa-convert/c to do the underlying CWA to CSV conversion.  The `convert_cwa` function will run to create a CSV file
+```{r}
+csv_file = convert_cwa(file, verbose = FALSE)
+csv_file
+```
+
+We see the output is a list, with the first element being the `file` element, which is the CSV output file.  The `header` slot, if the `GGIR` package is available, will be header information from the file.  The C code does not output all the header elements, so `GGIR` was used.
+
+If we look at the head of the CSV file, we see it has data only:
+```{r}
+readLines(csv_file$file, 3)
+```
+
+This CSV can be read in using `read_cwa_csv`:
+
+```{r}
+df = read_cwa_csv(csv_file$file)
+head(df)
+```
+which will give you the output `data.frame`.
+
+```{r}
+attr(df, "header")
+```
+
+# Converting to a Data Frame
+The process for converting a CWA to a `data.frame` is essentially the 2 processes above wrapped into the `read_cwa` function:
+
+```{r}
+out = read_cwa(file, verbose = FALSE)
+out
+```
+
+
+If the header is not available, you can do a quick estimation of the sampling frequency based on the differences between times:
+
+```{r}
+diffs = as.numeric(diff(out$data$timestamp))
+diffs = as.numeric(names(which.max(table(diffs))))
+estimated_freq = round(1/diffs, 3)
+estimated_freq
+```
+
+which should match up when you have the header information:
+
+```{r}
+out$header$frequency
+```
+
+## Reading in Other Data
+By default, for all functions, the `xyz_only = TRUE`, which indicates only the time and X/Y/Z acceleration parameters will be reported.  If `xyz_only = FALSE`, then all data available from this extracted code will be retrieved from the data file:
+
+```{r}
+out = read_cwa(file, xyz_only = FALSE, verbose = FALSE)
+out$data
+```
+
+where we see the following columns output:
+```{r}
+colnames(out$data)
+```
+
