@@ -3,7 +3,8 @@ testthat::test_that("Reading in the data", {
   gz_file = system.file("extdata", "ax3_testfile.cwa.gz", package = "read.cwa")
   file = tempfile(fileext = ".cwa")
   file = R.utils::gunzip(gz_file, destname = file,
-                         temporary = TRUE, remove = FALSE)
+                         temporary = TRUE, remove = FALSE,
+                         overwrite = TRUE)
 
   out = read_cwa(file, xyz_only = FALSE)
   hdr = out$header
