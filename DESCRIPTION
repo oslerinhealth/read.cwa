@@ -1,7 +1,7 @@
 Package: read.cwa
 Type: Package
-Title: Convert 'Axtivity' 'CWA' Files
-Version: 0.1.0
+Title: Convert 'Axivity' 'CWA' Files
+Version: 0.1.1
 Authors@R: 
     c(person(given = "John",
              family = "Muschelli",
@@ -10,8 +10,9 @@ Authors@R:
              comment = c(ORCID = "0000-0001-6469-1750"))
     )
 Description: Implements a converter 
-    for 'Axtivity' 'CWA' data files to CSV.  A CSV reader wrapper function 
-    for the output of the converted file is also provided.
+    for 'Axivity' 'CWA' data files <https://axivity.com/> to CSV.  
+    A CSV reader wrapper function for the output of the converted 
+    file is also provided.
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
