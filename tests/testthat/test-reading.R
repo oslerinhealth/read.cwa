@@ -11,23 +11,23 @@ testthat::test_that("Reading in the data", {
   out = out$data
   testthat::expect_named(
     out,
-    c("timestamp", "x", "y", "z", "light", "temperature", "battery",
+    c("time", "X", "Y", "Z", "light", "temperature", "battery",
       "battery_voltage", "battery_percentage", "battery_relative",
       "events")
     )
   testthat::expect_equal(
-    colMeans(out[, c("x", "y", "z")]),
-    c(x = 0.777613146551724, y = 0.127438936781609, z = 0.291899245689655)
+    colMeans(out[, c("X", "Y", "Z")]),
+    c(X = 0.777613146551724, Y = 0.127438936781609, Z = 0.291899245689655)
   )
   testthat::expect_silent(read_cwa(file, verbose = FALSE))
   out = read_cwa(file, xyz_only = TRUE)
   out = out$data
   testthat::expect_named(
     out,
-    c("timestamp", "x", "y", "z")
+    c("time", "X", "Y", "Z")
     )
   testthat::expect_equal(
-    colMeans(out[, c("x", "y", "z")]),
-    c(x = 0.777613146551724, y = 0.127438936781609, z = 0.291899245689655)
+    colMeans(out[, c("X", "Y", "Z")]),
+    c(X = 0.777613146551724, Y = 0.127438936781609, Z = 0.291899245689655)
   )
 })

@@ -24,6 +24,10 @@ We will use a file embedded in the package:
 ```{r}
 file = system.file("extdata", "ax3_testfile.cwa.gz", package = "read.cwa")
 ```
+```{r}
+file = R.utils::gunzip(file, destname = tempfile(fileext = ".cwa"), 
+                       remove = FALSE, overwrite = TRUE)
+```
 
 To show how the package uses the C code from https://github.com/digitalinteraction/openmovement/tree/master/Software/AX3/cwa-convert/c to do the underlying CWA to CSV conversion.  The `convert_cwa` function will run to create a CSV file
 ```{r}
@@ -73,7 +77,7 @@ file.remove(file.path(tempdir(), "ax3_testfile.cwa"))
 If the header is not available, you can do a quick estimation of the sampling frequency based on the differences between times:
 
 ```{r}
-diffs = as.numeric(diff(out$data$timestamp))
+diffs = as.numeric(diff(out$data$time))
 diffs = as.numeric(names(which.max(table(diffs))))
 estimated_freq = round(1/diffs, 3)
 estimated_freq

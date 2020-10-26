@@ -38,6 +38,7 @@ convert_cwa <- function(file, outfile = tempfile(fileext = ".csv"),
       )
       file = R.utils::decompressFile(
         file,
+        destname = tempfile(fileext = ".cwa"),
         temporary = TRUE,
         overwrite = TRUE,
         ext = ext,
@@ -78,14 +79,14 @@ read_cwa_csv = function(file, xyz_only = TRUE, verbose = TRUE) {
     event_col = readr::col_skip()
   }
   col_spec = readr::cols(
-    timestamp = readr::col_datetime(format = ""),
+    time = readr::col_datetime(format = ""),
     .default = default,
-    x = readr::col_double(),
-    y = readr::col_double(),
-    z = readr::col_double(),
+    X = readr::col_double(),
+    Y = readr::col_double(),
+    Z = readr::col_double(),
     events = event_col
   )
-  cnames = c("timestamp", "x", "y", "z",
+  cnames = c("time", "X", "Y", "Z",
              "light", "temperature", "battery",
              "battery_voltage",
              "battery_percentage",
@@ -93,7 +94,7 @@ read_cwa_csv = function(file, xyz_only = TRUE, verbose = TRUE) {
              "events")
   if (xyz_only) {
     col_spec$cols$events = NULL
-    cnames = c("timestamp", "x", "y", "z")
+    cnames = c("time", "X", "Y", "Z")
   }
   x = readr::read_csv(
     file,
