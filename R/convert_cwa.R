@@ -1,3 +1,12 @@
+get_hdr = function(file, verbose = TRUE) {
+  hdr = NULL
+  if (requireNamespace("GGIR", quietly = TRUE)) {
+    hdr = GGIR::g.cwaread(file, start = 0, end = 10, progressBar = verbose,
+                          desiredtz = "UTC")
+    hdr = hdr$header
+  }
+  hdr
+}
 #' Convert a CWA activity file to a CSV
 #' @param file input CWA file
 #' @param outfile output CSV file
@@ -35,10 +44,15 @@ convert_cwa <- function(file, outfile = tempfile(fileext = ".csv"),
   outfile = as.character(outfile)
   stopifnot(nchar(outfile) > 0)
   args = c(file,  outfile)
-  .Call("convert_cwa_",  args[1], args[2],
+
+  result = .Call("convert_cwa_",  args[1], args[2],
         as.integer(xyz_only),
         as.integer(verbose),
         PACKAGE = "read.cwa")
+  hdr = get_hdr(file, verbose = verbose)
+  L = list(file = result)
+  L$header = hdr
+  L
 }
 
 #' @rdname convert_cwa
@@ -84,10 +98,15 @@ read_cwa <- function(file, outfile = tempfile(fileext = ".csv"),
   if (verbose) {
     message("Converting the CWA to CSV")
   }
-  csv_file = convert_cwa(file, outfile = outfile, xyz_only = xyz_only,
+  csv = convert_cwa(file, outfile = outfile, xyz_only = xyz_only,
                          verbose = verbose)
+  hdr = csv$header
+  csv_file = csv$file
   if (verbose) {
     message(paste0("Reading in the CSV: ", csv_file))
   }
-  read_cwa_csv(csv_file, xyz_only = xyz_only, verbose = verbose)
+  L = list(
+    data = read_cwa_csv(csv_file, xyz_only = xyz_only, verbose = verbose),
+    header = hdr)
+  L
 }

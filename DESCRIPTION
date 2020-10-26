@@ -22,7 +22,8 @@ RoxygenNote: 7.1.1
 Suggests: 
     knitr,
     rmarkdown,
-    testthat (>= 2.1.0)
+    testthat (>= 2.1.0),
+    GGIR
 VignetteBuilder: knitr
 URL: https://github.com/muschellij2/read.cwa
 BugReports: https://github.com/muschellij2/read.cwa/issues

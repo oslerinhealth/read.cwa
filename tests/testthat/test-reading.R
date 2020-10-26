@@ -6,6 +6,8 @@ testthat::test_that("Reading in the data", {
                          temporary = TRUE, remove = FALSE)
 
   out = read_cwa(file, xyz_only = FALSE)
+  hdr = out$header
+  out = out$data
   testthat::expect_named(
     out,
     c("timestamp", "x", "y", "z", "light", "temperature", "battery",
@@ -18,6 +20,7 @@ testthat::test_that("Reading in the data", {
   )
   testthat::expect_silent(read_cwa(file, verbose = FALSE))
   out = read_cwa(file, xyz_only = TRUE)
+  out = out$data
   testthat::expect_named(
     out,
     c("timestamp", "x", "y", "z")
