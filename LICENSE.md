@@ -553,6 +553,10 @@ and each file should have at least the “copyright” line and a pointer to
 where the full notice is found.
 
     <one line to give the program's name and a brief idea of what it does.>
+
+	Copyright (c) 2009-2018, Newcastle University, UK.
+	All rights reserved.
+
     Copyright (C) 2020 John Muschelli
 
     This program is free software: you can redistribute it and/or modify
