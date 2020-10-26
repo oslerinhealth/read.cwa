@@ -29,13 +29,13 @@ All rights reserved.
 
 You can install the released version of `read.cwa` from [CRAN](https://CRAN.R-project.org) with:
 
-``` r
+```r
 install.packages("read.cwa")
 ```
 
 And the development version from [GitHub](https://github.com/) with:
 
-``` r
+```r
 # install.packages("devtools")
 devtools::install_github("muschellij2/read.cwa")
 ```
