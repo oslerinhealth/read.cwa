@@ -1,8 +1,8 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-read.cwa
-========
+`read.cwa` package
+==================
 
 <!-- badges: start -->
 
@@ -13,7 +13,9 @@ status](https://github.com/muschellij2/read.cwa/workflows/R-CMD-check/badge.svg)
 <!-- badges: end -->
 
 The goal of `read.cwa` is to provide functionality to convert ‘Axivity’
-‘CWA’ files. The data was extracted from
+‘CWA’ files
+(<a href="https://axivity.com/" class="uri">https://axivity.com/</a>).
+The data was extracted from
 <a href="https://github.com/digitalinteraction/openmovement/" class="uri">https://github.com/digitalinteraction/openmovement/</a>,
 specifically code from
 <a href="https://github.com/digitalinteraction/openmovement/tree/master/Software/AX3/cwa-convert/c" class="uri">https://github.com/digitalinteraction/openmovement/tree/master/Software/AX3/cwa-convert/c</a>,
@@ -23,7 +25,7 @@ Newcastle University, UK. All rights reserved.
 Installation
 ------------
 
-You can install the released version of read.cwa from
+You can install the released version of `read.cwa` from
 [CRAN](https://CRAN.R-project.org) with:
 
     install.packages("read.cwa")
@@ -36,7 +38,7 @@ And the development version from [GitHub](https://github.com/) with:
 Example
 -------
 
-This is a basic example which shows you how to read in a CWA:
+This is a basic example which shows you how to read in a CWA file:
 
     library(read.cwa)
     file = system.file("extdata", "ax3_testfile.cwa.gz", package = "read.cwa")
@@ -46,7 +48,7 @@ This is a basic example which shows you how to read in a CWA:
     #> [MD].
     #> Wrote 876815 bytes of data (17400 samples).
     #>   |                                                                              |===                                                                   |   4%  |                                                                              |======                                                                |   8%  |                                                                              |========                                                              |  12%  |                                                                              |===========                                                           |  16%  |                                                                              |==============                                                        |  20%  |                                                                              |=================                                                     |  24%  |                                                                              |====================                                                  |  28%  |                                                                              |=======================                                               |  32%  |                                                                              |=========================                                             |  36%  |                                                                              |============================                                          |  40%  |                                                                              |===============================                                       |  45%  |                                                                              |==================================                                    |  49%  |                                                                              |=====================================                                 |  53%  |                                                                              |========================================                              |  57%  |                                                                              |==========================================                            |  61%  |                                                                              |=============================================                         |  65%  |                                                                              |================================================                      |  69%  |                                                                              |===================================================                   |  73%  |                                                                              |======================================================                |  77%  |                                                                              |=========================================================             |  81%  |                                                                              |===========================================================           |  85%  |                                                                              |==============================================================        |  89%  |                                                                              |=================================================================     |  93%  |                                                                              |====================================================================  |  97%
-    #> Reading in the CSV: /var/folders/1s/wrtqcpxn685_zk570bnx9_rr0000gr/T//RtmpKBHiAF/filef6471a7d36e4.csv
+    #> Reading in the CSV: /var/folders/1s/wrtqcpxn685_zk570bnx9_rr0000gr/T//Rtmpxw3UPN/file1067c689b83bb.csv
     head(out)
     #> $data
     #> # A tibble: 17,400 x 4
@@ -95,7 +97,7 @@ This is a basic example which shows you how to read in a CWA:
     #> [MD].
     #> Wrote 876815 bytes of data (17400 samples).
     #>   |                                                                              |===                                                                   |   4%  |                                                                              |======                                                                |   8%  |                                                                              |========                                                              |  12%  |                                                                              |===========                                                           |  16%  |                                                                              |==============                                                        |  20%  |                                                                              |=================                                                     |  24%  |                                                                              |====================                                                  |  28%  |                                                                              |=======================                                               |  32%  |                                                                              |=========================                                             |  36%  |                                                                              |============================                                          |  40%  |                                                                              |===============================                                       |  45%  |                                                                              |==================================                                    |  49%  |                                                                              |=====================================                                 |  53%  |                                                                              |========================================                              |  57%  |                                                                              |==========================================                            |  61%  |                                                                              |=============================================                         |  65%  |                                                                              |================================================                      |  69%  |                                                                              |===================================================                   |  73%  |                                                                              |======================================================                |  77%  |                                                                              |=========================================================             |  81%  |                                                                              |===========================================================           |  85%  |                                                                              |==============================================================        |  89%  |                                                                              |=================================================================     |  93%  |                                                                              |====================================================================  |  97%
-    #> Reading in the CSV: /var/folders/1s/wrtqcpxn685_zk570bnx9_rr0000gr/T//RtmpKBHiAF/filef6471593aada.csv
+    #> Reading in the CSV: /var/folders/1s/wrtqcpxn685_zk570bnx9_rr0000gr/T//Rtmpxw3UPN/file1067c64a9d172.csv
     head(out)
     #> $data
     #> # A tibble: 17,400 x 4
