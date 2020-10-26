@@ -25,6 +25,7 @@ convert_cwa <- function(file, outfile = tempfile(fileext = ".csv"),
                         verbose = TRUE) {
   file = path.expand(file)
   file = normalizePath(file, winslash = "/", mustWork = TRUE)
+  unlink_file = FALSE
   for (ext in c("bz2", "gz", "xz")) {
     if (R.utils::isCompressedFile(file, method = "extension", ext = ext,
                                   fileClass = "")) {
@@ -34,12 +35,17 @@ convert_cwa <- function(file, outfile = tempfile(fileext = ".csv"),
                    bz2 = bzfile
       )
       file = R.utils::decompressFile(
-        file, temporary = TRUE,
+        file,
+        temporary = TRUE,
         overwrite = TRUE,
         ext = ext,
         FUN = FUN,
         remove = FALSE)
+      unlink_file = TRUE
     }
+  }
+  if (unlink_file) {
+    on.exit(unlink(file))
   }
   outfile = as.character(outfile)
   stopifnot(nchar(outfile) > 0)
