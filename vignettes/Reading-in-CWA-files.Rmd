@@ -31,6 +31,10 @@ csv_file = convert_cwa(file, verbose = FALSE)
 csv_file
 ```
 
+```{r, include=FALSE}
+file.remove(file.path(tempdir(), "ax3_testfile.cwa"))
+```
+
 We see the output is a list, with the first element being the `file` element, which is the CSV output file.  The `header` slot, if the `GGIR` package is available, will be header information from the file.  The C code does not output all the header elements, so `GGIR` was used.
 
 If we look at the head of the CSV file, we see it has data only:
@@ -43,6 +47,10 @@ This CSV can be read in using `read_cwa_csv`:
 ```{r}
 df = read_cwa_csv(csv_file$file)
 head(df)
+```
+
+```{r, include=FALSE}
+file.remove(file.path(tempdir(), "ax3_testfile.cwa"))
 ```
 which will give you the output `data.frame`.
 
@@ -58,6 +66,9 @@ out = read_cwa(file, verbose = FALSE)
 out
 ```
 
+```{r, include=FALSE}
+file.remove(file.path(tempdir(), "ax3_testfile.cwa"))
+```
 
 If the header is not available, you can do a quick estimation of the sampling frequency based on the differences between times:
 
@@ -80,6 +91,10 @@ By default, for all functions, the `xyz_only = TRUE`, which indicates only the t
 ```{r}
 out = read_cwa(file, xyz_only = FALSE, verbose = FALSE)
 out$data
+```
+
+```{r, include=FALSE}
+file.remove(file.path(tempdir(), "ax3_testfile.cwa"))
 ```
 
 where we see the following columns output:

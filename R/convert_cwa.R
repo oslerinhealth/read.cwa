@@ -27,8 +27,10 @@ convert_cwa <- function(file, outfile = tempfile(fileext = ".csv"),
   file = normalizePath(file, winslash = "/", mustWork = TRUE)
   unlink_file = FALSE
   for (ext in c("bz2", "gz", "xz")) {
-    if (R.utils::isCompressedFile(file, method = "extension", ext = ext,
-                                  fileClass = "")) {
+    if (R.utils::isCompressedFile(
+      file, method = "extension",
+      ext = ext,
+      fileClass = "")) {
       FUN = switch(ext,
                    gz = gzfile,
                    xz = xzfile,
@@ -45,16 +47,16 @@ convert_cwa <- function(file, outfile = tempfile(fileext = ".csv"),
     }
   }
   if (unlink_file) {
-    on.exit(unlink(file))
+    on.exit(unlink(file, recursive = TRUE))
   }
   outfile = as.character(outfile)
   stopifnot(nchar(outfile) > 0)
   args = c(file,  outfile)
 
   result = .Call("convert_cwa_",  args[1], args[2],
-        as.integer(xyz_only),
-        as.integer(verbose),
-        PACKAGE = "read.cwa")
+                 as.integer(xyz_only),
+                 as.integer(verbose),
+                 PACKAGE = "read.cwa")
   hdr = get_hdr(file, verbose = verbose)
   L = list(file = result)
   L$header = hdr
@@ -112,7 +114,7 @@ read_cwa <- function(file, outfile = tempfile(fileext = ".csv"),
     message("Converting the CWA to CSV")
   }
   csv = convert_cwa(file, outfile = outfile, xyz_only = xyz_only,
-                         verbose = verbose)
+                    verbose = verbose)
   hdr = csv$header
   csv_file = csv$file
   if (verbose) {

@@ -1,7 +1,7 @@
 Package: read.cwa
 Type: Package
 Title: Convert 'Axivity' 'CWA' Files
-Version: 0.2.0
+Version: 0.2.1
 Authors@R: 
     c(person(given = "John",
              family = "Muschelli",
