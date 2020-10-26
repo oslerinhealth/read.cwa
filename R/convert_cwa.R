@@ -108,5 +108,6 @@ read_cwa <- function(file, outfile = tempfile(fileext = ".csv"),
   L = list(
     data = read_cwa_csv(csv_file, xyz_only = xyz_only, verbose = verbose),
     header = hdr)
+  class(L) = "AccData"
   L
 }
