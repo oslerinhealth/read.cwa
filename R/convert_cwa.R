@@ -124,6 +124,15 @@ read_cwa <- function(file, outfile = tempfile(fileext = ".csv"),
   L = list(
     data = read_cwa_csv(csv_file, xyz_only = xyz_only, verbose = verbose),
     header = hdr)
+  if (!is.null(hdr$frequency)) {
+    L$freq = hdr$frequency
+  }
+  if (length(hdr$accrange) > 0) {
+    arange =try({unique(abs(as.numeric(hdr$accrange)))})
+    if (!inherits(arange, "try-error")) {
+      attr(L$data, "dynamic_range") = c(-arange, arange)
+    }
+  }
   class(L) = "AccData"
   L
 }
