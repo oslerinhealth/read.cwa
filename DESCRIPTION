@@ -2,32 +2,27 @@ Package: read.cwa
 Type: Package
 Title: Convert 'Axivity' 'CWA' Files
 Version: 0.2.1
-Authors@R: 
-    c(person(given = "John",
-             family = "Muschelli",
-             role = c("aut", "cre"),
-             email = "muschellij2@gmail.com",
-             comment = c(ORCID = "0000-0001-6469-1750"))
-    )
-Description: Implements a converter 
-    for 'Axivity' Continuous Wave 'Accelerometer' ('CWA') data files 
-    <https://axivity.com/> to CSV.  
-    A CSV reader wrapper function for the output of the converted 
-    file is also provided.
+Authors@R: c(person(given = "John", family = "Muschelli", role =
+        c("aut", "cre"), email = "muschellij2@gmail.com", comment =
+        c(ORCID = "0000-0001-6469-1750")) )
+Description: Implements a converter for 'Axivity' Continuous Wave
+        'Accelerometer' ('CWA') data files <https://axivity.com/> to
+        CSV. A CSV reader wrapper function for the output of the
+        converted file is also provided.
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
-Imports: 
-    R.utils,
-    readr
+Imports: R.utils, readr
 RoxygenNote: 7.1.1
 Suggests: 
     knitr,
     rmarkdown,
     testthat (>= 2.1.0),
-    GGIR
+    GGIR,
+    covr
 VignetteBuilder: knitr
 URL: https://github.com/muschellij2/read.cwa
 BugReports: https://github.com/muschellij2/read.cwa/issues
-Depends: 
-    R (>= 2.10)
+Depends: R (>= 2.10)
+Repository: Oslerinhealth
+biocViews: 

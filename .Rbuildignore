@@ -11,3 +11,7 @@
 ^LICENSE\.md$
 ^\.github$
 ^CRAN-RELEASE$
+^DESCRIPTION\.bak$
+^autoci\.yml$
+^autoci_pkgdown\.yml$
+^tic\.R$
